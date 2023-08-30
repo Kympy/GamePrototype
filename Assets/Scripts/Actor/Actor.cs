@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Actor : StaticActor
 {
-	protected float speed;
-	protected float jumpPower;
+	// Current velocity of this actor.
+	protected float velocity;
+	public float Velocity
+	{
+		get { return velocity; } 
+		set {  velocity = value; }
+	}
+	// Current jump force of this actor.
+	protected float jumpForce;
+	public float JumpForce
+	{
+		get { return jumpForce; }
+		set { jumpForce = value; }
+	}
 }

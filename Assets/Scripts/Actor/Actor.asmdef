@@ -2,7 +2,8 @@
     "name": "Actor",
     "rootNamespace": "",
     "references": [
-        "GUID:d508d40ff3cde1648a026db5c6944a98"
+        "GUID:d508d40ff3cde1648a026db5c6944a98",
+        "GUID:04ee7b37987fdf244a7530a88a7ddc41"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
