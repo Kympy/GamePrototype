@@ -24,8 +24,7 @@ public class Interactable : StaticActor
 					LogManager.Log("Canceled rotation.");
 					break;
 				}
-				//Debug.Log($"Timer {timer} / Duration {duration} = {timer / duration}");	
-				if (Quaternion.Angle(transform.rotation, targetRotation) <= 1f)
+				if (Quaternion.Angle(transform.rotation, targetRotation) <= 0.1f)
 				{
 					LogManager.Log($"Finished rotation. Time : {timer}");
 					break;

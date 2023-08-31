@@ -1,10 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : Interactable, IInteract
 {
+	protected override void Awake()
+	{
+		base.Awake();
+		interactCallback = null;
+		interactCallback += () => isInteractable = true;
+	}
 	private bool isOpened = false;
+	private Action interactCallback = null;
 	public void Interact()
 	{
 		if (isInteractable == false) return;
@@ -12,16 +20,16 @@ public class Door : Interactable, IInteract
 		isInteractable = false;
 		if (isOpened == false)
 		{
-			IRotate(Quaternion.Euler(0f, 90f, 0f), 4f, InteractCallback);
+			IRotate(Quaternion.Euler(0f, 90f, 0f), 4f, interactCallback);
 		}
 		else
 		{
-			IRotate(Quaternion.Euler(0f, -90f, 0f), 4f, InteractCallback);
+			IRotate(Quaternion.Euler(0f, -90f, 0f), 4f, interactCallback);
 		}
 	}
-	public void InteractCallback()
+	public void AddCallback(Action argCallbackAction)
 	{
-		isInteractable = true;
+		interactCallback += argCallbackAction;
 	}
 	private void Update()
 	{

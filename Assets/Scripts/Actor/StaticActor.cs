@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StaticActor : MonoBehaviour, IInit
 {
-	public virtual void Awake() { }
-	public virtual void Start() { }
+	protected virtual void Awake() { }
+	protected virtual void Start() { }
 	public virtual void OnEnable() { }
 	public virtual void OnDisable() { }
 	public virtual void OnDestroy() { }
