@@ -32,15 +32,13 @@ public class UIManager : ManagerBase
 	}
 	public T CreateUI<T>(string resourcePath, UILayer layer, UIType type) where T : UIBase
 	{
-		var result = Addressables.LoadAssetAsync<T>(resourcePath);
-		if (result.Result == null)
-		{
-			return null;
-		}
-		Instantiate(result.Result);
-		return result.Result;
+		var result = ResourceUtility.LoadAsset<GameObject>(resourcePath);
+		var created = Instantiate(result.Current);
+
+		return created.GetComponent<T>();
 	}
 	private Dictionary<UIType, List<UIBase>> UIContainer = new Dictionary<UIType, List<UIBase>>(); 
+	
 	public void CreateTitleUI()
 	{
 		

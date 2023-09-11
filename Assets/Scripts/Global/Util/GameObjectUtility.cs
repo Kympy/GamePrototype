@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectUtility : MonoBehaviour
+public class GameObjectUtility
 {
 	private static GameObject cachedGameObject = null;
 	public static T MakeAndGetComponent<T>(Transform parentTransform = null, bool dontDestroy = false) where T : MonoBehaviour
@@ -14,7 +12,7 @@ public class GameObjectUtility : MonoBehaviour
 		}
 		if (dontDestroy == true)
 		{
-			DontDestroyOnLoad(cachedGameObject);
+			Object.DontDestroyOnLoad(cachedGameObject);
 		}
 		return cachedGameObject.GetComponent<T>();
 	}

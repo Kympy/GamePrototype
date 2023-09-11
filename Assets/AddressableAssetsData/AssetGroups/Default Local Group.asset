@@ -16,7 +16,15 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 331d4807519b8944b986769aa88e06e4
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 42978748ad836204dbda36b18161a9f3
+    m_Address: Assets/Resources_moved/AudioClip/DoorSound.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: afab9300c3f9c5c47a9ffd149a0df9f1
+    m_Address: Assets/Resources_moved/GlobalMixer.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 01dd0cc7242100545815d32edbc19052, type: 2}
   m_SchemaSet:

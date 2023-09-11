@@ -1,15 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Door : Interactable, IInteract
 {
-	protected override void Awake()
+	private AudioSource m_AudioSource = null;
+	protected override void Start()
 	{
 		base.Awake();
 		interactCallback = null;
 		interactCallback += () => isInteractable = true;
+
+		var clip = ResourceUtility.LoadAsset<AudioClip>("Assets/Resources_moved/AudioClip/DoorSound.mp3");
+		m_AudioSource = this.AddComponent<AudioSource>();
+		m_AudioSource.clip = clip.Current;
+		m_AudioSource.outputAudioMixerGroup = GameManager.Instance.Audio.GetMasterMixerGroup();
+		m_AudioSource.playOnAwake = false;
 	}
 	private bool isOpened = false;
 	private Action interactCallback = null;
@@ -18,6 +26,7 @@ public class Door : Interactable, IInteract
 		if (isInteractable == false) return;
 
 		isInteractable = false;
+		m_AudioSource.Play();
 		if (isOpened == false)
 		{
 			IRotate(Quaternion.Euler(0f, 90f, 0f), 4f, interactCallback);

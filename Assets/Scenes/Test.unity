@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 730252691}
   - component: {fileID: 730252695}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
